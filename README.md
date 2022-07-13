@@ -1,7 +1,7 @@
 # ft_containers
 Reimplement the STL, version C++98, in a basic way.
 
-![enter image description here](git_content/container_schema.png)
+![enter image description here](git_content/schema.png)
 
 ## Containers Library :
 
