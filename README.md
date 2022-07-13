@@ -75,19 +75,20 @@ FR => https://jonathanpoelen.github.io/2020/04/sfinae/
 
 **Specialization / Explicit specialization / Partial specialization :**
 
-Specialization : https://www.ibm.com/docs/en/zos/2.4.0?topic=only-template-specialization-c
+- Specialization : https://www.ibm.com/docs/en/zos/2.4.0?topic=only-template-specialization-c
 
-Explicit specialization : https://www.ibm.com/docs/en/zos/2.4.0?topic=only-explicit-specialization-c
+- Explicit specialization : https://www.ibm.com/docs/en/zos/2.4.0?topic=only-explicit-specialization-c
 
-Partial specialization : https://www.ibm.com/docs/en/zos/2.4.0?topic=only-partial-specialization-c
+- Partial specialization : https://www.ibm.com/docs/en/zos/2.4.0?topic=only-partial-specialization-c
 
-**Increase my knowledge about Unit testing, debugging, generic programming, architectural skills.**
+**Increase my knowledge about** :
 
-**LLVM tools, and speed testing with big samples.**
-
-**Orthogonality (programming)**
-
-https://en.wikipedia.org/wiki/Orthogonality_(programming)
+- Unit testing
+- Debugging
+- Generic programming
+- Architectural skills
+- LLVM tools
+- Orthogonality programming (nice concept) https://en.wikipedia.org/wiki/Orthogonality_(programming)
 
 **Iterators** :
 
@@ -113,11 +114,13 @@ https://en.wikipedia.org/wiki/Orthogonality_(programming)
 **About Complexity				:** 
 
 https://www.youtube.com/watch?v=M4ubFru2O80
+<br>
 https://www.youtube.com/watch?v=Mo4vesaut8g
 
 **Red & black tree complexity :** 
 
 Amortized 	: Search O(log n), Insert O(1), Delete O(1)
+<br>
 Worst Case 	: Search O(log n), Insert O(log n), Delete O(log n)
 
 **Red & Black tree properties :**
