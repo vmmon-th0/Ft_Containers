@@ -83,7 +83,7 @@ Partial specialization : https://www.ibm.com/docs/en/zos/2.4.0?topic=only-partia
 
 **Increase my knowledge about Unit testing, debugging, generic programming, architectural skills.**
 
-LLVM tools, and speed testing with big samples.
+**LLVM tools, and speed testing with big samples.**
 
 **Orthogonality (programming)**
 
