@@ -9,7 +9,7 @@
 #include <sys/time.h>
 
 /* 
-	Performance test
+Performance test
 
 int main(int argc, char const *argv[])
 {
