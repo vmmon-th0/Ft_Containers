@@ -307,9 +307,9 @@ namespace ft
 			{
 				if (position + 1 != end())
 				{
-					for (iterator it1 = position + 1, it2 = position; it1 != end(); ++it1, ++it2)
+					for (pointer x = position.base() + 1, y = position.base(); x != this->V_finish; ++x, ++y)
 					{
-						*it2 = *it1;
+						*y = *x;
 					}
 				}
 				vector_allocator.destroy(--this->V_finish);
