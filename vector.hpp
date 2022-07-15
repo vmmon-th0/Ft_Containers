@@ -467,7 +467,7 @@ namespace ft
 						}
 						for (iterator it = position; it != end(); ++it)
 						{
-							*position = x;
+							*it = x;
 						}
 						for (pointer ptr = this->V_finish; ptr != this->V_finish + (n - (end() - position)); ++ptr)
 						{
