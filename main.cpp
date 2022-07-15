@@ -8,6 +8,15 @@
 #include <numeric>
 #include <sys/time.h>
 
+int main()
+{
+	ft::vector<int> test;
+
+	
+
+	return 0;
+}
+
 /* 
 Performance test
 

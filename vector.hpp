@@ -1,9 +1,9 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
 
-#include <list>
 #include <memory>
 #include <string>
+#include <cstring>
 #include <iostream>
 #include <iterator>
 #include <stdexcept>
@@ -80,16 +80,12 @@ namespace ft
 				}
 			}
 
-			vector(const vector<Tp>& x)
+			vector(const vector<Tp>& x) 
 			{
-				this->V_start = vector_allocator.allocate(x.end() - x.begin());
-				pointer y = this->V_start;
-				for (const_iterator it = x.begin(); it != x.end(); ++it, ++y)
-				{
-					vector_allocator.construct(y, *it);
-				}
-				this->V_finish = y;
-				this->V_end_of_storage = this->V_finish;
+				this->V_start = vector_allocator.allocate(x.capacity());
+				this->V_finish = this->V_start + x.size();
+				this->V_end_of_storage = this->V_start + x.capacity();
+				std::memcpy(static_cast<void *>(this->V_start), static_cast<void *>(x.V_start), x.size() * sizeof(value_type));
 			}
 
 			template<typename InputIterator>
