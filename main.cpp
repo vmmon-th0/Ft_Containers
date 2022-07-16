@@ -17,9 +17,12 @@
 /* Ajouter valgrind output */
 /* lower_bound, upper_bound */
 
-#define CONTAINER std
+#if !defined(CONTAINER)
+#error unit testing require namespaces.
+#endif
 
-int main()
+int
+main()
 {
 	clock_t c;
 	CONTAINER::stack<int>		st;
@@ -55,30 +58,6 @@ int main()
 	v.erase(v.begin(), v.end());
 	v.insert(v.begin(), 10000, 1);
 	v.clear();
-	std::cout << "time elapsed : " << (double)(std::clock() - c) / CLOCKS_PER_SEC << std::endl;
-	std::cout << std::endl << std::endl;
-
-	/*-map-*/
-	std::cout << "map BM" << std::endl;
-	for (int i = 0; i < 10000; ++i)
-	{
-		m.insert(CONTAINER::make_pair(i, i));
-	}
-	c = std::clock();
-	for (int i = 0; i < 100; i++)
-	{
-		volatile CONTAINER::map<int, int> v(m.begin(), m.end());
-	}
-	for (int i = 0; i < 100; i++)
-	{
-		volatile CONTAINER::map<int, int> y(m);
-	}
-	m.find(500);
-	m.erase(m.begin(), m.end());
-	for (int i = 0; i < 100000; ++i)
-	{
-		m.insert(CONTAINER::make_pair(i, i));
-	}
 	std::cout << "time elapsed : " << (double)(std::clock() - c) / CLOCKS_PER_SEC << std::endl;
 	std::cout << std::endl << std::endl;
 
