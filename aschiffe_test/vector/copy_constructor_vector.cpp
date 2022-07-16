@@ -6,6 +6,9 @@
 
 static int test_count = 0;
 
+FT_VECTOR z(10000, 1);
+STD_VECTOR y(10000, 1);
+
 void
 copy_constructor_vector_test()
 {
@@ -24,9 +27,18 @@ copy_constructor_vector_test()
 
 template<typename ContainerType>
 void
-copy_speed_test(ContainerType& x)
+ft_copy_speed_test(ContainerType& x)
 {
-	ContainerType test(x);
+	(void)x;
+	ContainerType test(z);
+}
+
+template<typename ContainerType>
+void
+std_copy_speed_test(ContainerType& x)
+{
+	(void)x;
+	ContainerType test(y);
 }
 
 void
@@ -43,7 +55,7 @@ start()
 	FT_VECTOR ft_vec(10000,1);
 	STD_VECTOR std_vec(10000,1);
     srand(time(NULL));
-	measure_handler(ft_vec, std_vec, &copy_speed_test, &copy_speed_test);
+	measure_handler(ft_vec, std_vec, &ft_copy_speed_test, &std_copy_speed_test);
 	copy_constructor_vector_test();
     return 0;
 }

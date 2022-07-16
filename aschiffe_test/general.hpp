@@ -3,6 +3,7 @@
 
 #include <map>
 #include <set>
+#include <ctime>
 #include <stack>
 #include <string>
 #include <vector>
@@ -17,7 +18,7 @@
 #include "../rainbow.hpp"
 
 #ifndef NB_SAMPLES
-#define NB_SAMPLES 10
+#define NB_SAMPLES 100
 #endif
 
 /* REDEFINE MAIN() */
@@ -48,24 +49,22 @@
 #define STD_LST		std::list<TP>
 
 /* TIME STUFF */
-typedef float		time_type;
+typedef double		time_type;
 
 template<typename ContainerType>
 time_type
 measure_speed_execution(void(*tester)(ContainerType&), ContainerType& x)
 {
-		std::vector<time_type> time_sample;
+		clock_t c;
+		std::vector<time_type> samples;
 		for (int i = 0; i < NB_SAMPLES; ++i)
 		{
-				struct timeval start;
-				struct timeval stop;
-				gettimeofday(&start, NULL);
+				c = std::clock();
 				(*tester)(x);
-				gettimeofday(&stop, NULL);
-				time_sample.push_back((stop.tv_sec * (int)1e6 + stop.tv_usec) - (start.tv_sec * (int)1e6 + start.tv_usec));
+				samples.push_back((double)(std::clock() - c) / CLOCKS_PER_SEC);
 		}
 		srand(time(NULL));
-		time_type average = std::accumulate(time_sample.begin(), time_sample.end(), 0.);
+		time_type average = std::accumulate(samples.begin(), samples.end(), 0.) / NB_SAMPLES;
 		return average;
 }
 

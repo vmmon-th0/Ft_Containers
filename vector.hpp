@@ -44,7 +44,7 @@ namespace ft
 			pointer V_start;
 			pointer V_finish;
 			pointer V_end_of_storage;
-		
+
 		protected :
 
 			void
@@ -80,28 +80,37 @@ namespace ft
 				}
 			}
 
-			vector(const vector<Tp>& x) 
+			vector(const vector<Tp>& x)
 			{
-				this->V_start = vector_allocator.allocate(x.capacity());
-				this->V_finish = this->V_start + x.size();
-				this->V_end_of_storage = this->V_start + x.capacity();
-				std::memcpy(static_cast<void *>(this->V_start), static_cast<void *>(x.V_start), x.size() * sizeof(value_type));
+				this->V_start = vector_allocator.allocate(x.end() - x.begin());
+				pointer y = this->V_start;
+				for (pointer z = x.V_start; z != x.V_finish; ++z, ++y)
+				{
+					vector_allocator.construct(y, *z);
+				}
+				this->V_finish = y;
+				this->V_end_of_storage = this->V_finish;
 			}
+
+			// vector(const vector<Tp>& x) 
+			// {
+			// 	this->V_start = vector_allocator.allocate(x.capacity());
+			// 	this->V_finish = this->V_start + x.size();
+			// 	this->V_end_of_storage = this->V_start + x.capacity();
+			// 	std::memcpy(static_cast<void *>(this->V_start), static_cast<void *>(x.V_start), x.size() * sizeof(value_type));
+			// }
 
 			template<typename InputIterator>
 			vector(InputIterator first, typename ft::enable_if<!ft::is_integral<InputIterator>::value,
 					InputIterator>::type last, const Allocator& = Allocator())
 			{
-				size_type n = ft::distance(first, last);
-				this->V_start = vector_allocator.allocate(n);
+				this->V_start = vector_allocator.allocate(ft::distance(first, last));
 				pointer x = this->V_start;
-				while (first != last)
+				for (; first != last; ++x, ++first)
 				{
 					vector_allocator.construct(x, *first);
-					++first;
-					++x;
-				}				
-				this->V_finish = this->V_start + n;
+				}
+				this->V_finish = x;
 				this->V_end_of_storage = this->V_finish;
 			}
 
@@ -315,17 +324,17 @@ namespace ft
 			iterator
 			erase(iterator first, iterator last)
 			{
-				iterator pos = first;
-				for (; last != end(); ++last, ++pos)
+				pointer pos = first.base();
+				for (pointer pos2 = last.base(); pos2 != this->V_finish; ++pos2, ++pos)
 				{
-					*pos = *last;
+					*pos = *pos2;
 				}
-				pointer ptr = pos.base();
+				pointer ptr = pos;
 				while (ptr != this->V_finish)
 				{
 					vector_allocator.destroy(ptr++);
 				}
-				this->V_finish = this->V_finish - (ptr - pos.base());
+				this->V_finish = this->V_finish - (ptr - pos);
 				return first;
 			}
 
@@ -407,9 +416,9 @@ namespace ft
 			void
 			clear()
 			{
-				for (size_type i = 0; i < size(); ++i)
+				for (pointer x = this->V_start; x != this->V_finish; ++x)
 				{
-					vector_allocator.destroy(this->V_start + i);
+					vector_allocator.destroy(x);
 				}
 				this->V_finish = this->V_start;
 			}
@@ -445,6 +454,12 @@ namespace ft
 				}
 				return begin() + n;
 			}
+
+			/* 		CASE 1 : The space in the vector is enough to insert (n) elements.
+					subcase 1 -> The space between end() and position is less than the elements we need to insert.
+					subcase 2 -> The space between end() and position is greater than the elements we need to insert.
+			
+					CASE 2 : The space is not big enough to insert (n) elements. */
 
 			void
 			insert(iterator position, size_type n, const value_type& x)
@@ -492,7 +507,7 @@ namespace ft
 				}
 				else
 				{
-					size_type len = n + size();
+					size_type len = size() + n;
 					pointer y = vector_allocator.allocate(len);
 					pointer z = y;
 					for (iterator it = begin(); it != position; ++it, ++z)
