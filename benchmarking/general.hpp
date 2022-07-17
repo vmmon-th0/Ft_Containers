@@ -19,4 +19,8 @@
 
 #define start main
 
+#if !defined(CONTAINER)
+#error unit testing require namespaces.
+#endif
+
 #endif

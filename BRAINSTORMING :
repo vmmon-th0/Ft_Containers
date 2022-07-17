@@ -1,0 +1,10 @@
+BRAINSTORMING :
+
+1) Compile the file in std and ft, create a file in each of theses programs, output every result on a file.
+at the end, do the diff.
+
+if a file doesnt compile specify it.
+
+if valgrind detect some errors specify it.
+
+if fsanitize detect some errors specify it too.
