@@ -25,5 +25,5 @@ start()
 	{
 		m.insert(CONTAINER::make_pair(i, i));
 	}
-	std::cout << "time elapsed : " << (double)(std::clock() - c) / CLOCKS_PER_SEC << std::endl;
+	std::cout << "time elapsed : " << (double)(std::clock() - c) / CLOCKS_PER_SEC << "[s]" << std::endl;
 }

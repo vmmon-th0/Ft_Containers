@@ -162,10 +162,18 @@ https://en.wikipedia.org/wiki/Introduction_to_Algorithms (3rd Edition)
 
 ### Prototype Unit test
 
-Here is an overview of my performance unit testing prototype. Yes there are other cases where my STL is slower. But overall we are on a good execution.
+Here is an overview of my unit testing prototype.
 
-![](git_content/test.gif)
+![](git_content/test1.gif)
 
-To test your container, go to the examined folder and run the script ```./launch.sh```
+To test your container, go to the examined folder and run the script ```./launch.sh```,
+You can supply the elements you wish to examine as arguments.
+
+In addition you also have a mini benchmarking
+
+![](git_content/test2.gif)
+
+In the /benchmarking folder, just run launch.sh as well.
+In case you want to use both use the test option in the main Makefile.
 
 _Coding convention : GNU-STYLE, with <3_

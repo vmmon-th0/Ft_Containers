@@ -14,6 +14,11 @@ $(NAME): $(CPPFILE)
 clean:
 	rm -f *.o
 
+test:
+	@cd unit_testing/ && ./launch.sh stack
+	@echo
+	@cd benchmarking/ && ./launch.sh
+
 fclean: clean
 	rm -f $(NAME)
 

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# How catch segfault ? 139
-# How catch double free ? 134 
-# How catch invalid pointer ? 134 ?s
 # How catch valgrind ? If we have valgrind errors, we store it in files
 # How catch fsanitize ? If we have sanitize errors, we store it in files
 
@@ -10,7 +7,7 @@ RED='\033[0;31m'		# Red
 GREEN='\033[0;32m'		# Green
 YELLLOW='\033[0;33m'	# Yellow
 
-RESET='\033[0m'		# Text Reset
+RESET='\033[0m'			# Text Reset
 
 ARGS=("$@")
 NB=$#
@@ -25,8 +22,6 @@ function launchtest()
 		clang++ -Wall -Wextra -Werror -std=c++98 $x -D CONTAINER=std -o y
 
 		echo -n $x " "
-
-		# echo -n ${#x}
 
 		for ((i = 0; i < 32 - (${#x} + 7); ++i)); do
 			echo -n " "

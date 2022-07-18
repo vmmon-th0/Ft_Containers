@@ -30,5 +30,5 @@ start()
 		v.pop_back();
 	}
 	v.clear();
-	std::cout << "time elapsed : " << (double)(std::clock() - c) / CLOCKS_PER_SEC << std::endl;
+	std::cout << "time elapsed : " << (double)(std::clock() - c) / CLOCKS_PER_SEC << "[s]" << std::endl;
 }
