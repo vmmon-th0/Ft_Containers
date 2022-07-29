@@ -4,13 +4,13 @@ int
 start()
 {
 	CONTAINER::vector<TP> v;
-    for (int i = 0; i < 1000; ++i)
+	for (int i = 0; i < 1000; ++i)
 	{
 		v.push_back(i);
 	}
-    CONTAINER::vector<TP> v1;
+	CONTAINER::vector<TP> v1;
 	v1 = v;
-    printContent(v1);
+	printContent(v1);
 	for (CONTAINER::vector<TP>::iterator it = v1.begin(); it != v1.end(); ++it)
 	{
 		*it *= 2;
@@ -28,5 +28,5 @@ start()
 			std::cout << *it2 << std::endl;
 		}
 	}
-    return 0;
+	return 0;
 }

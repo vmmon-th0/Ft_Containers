@@ -8,12 +8,12 @@ start()
 	{
 		v.push_back(i);
 	}
-    v.pop_back();
-    printContent(v);
-    for (int i = 0; i < 10; ++i)
-    {
-        v.pop_back();
-    }
+	v.pop_back();
+	printContent(v);
+	for (int i = 0; i < 10; ++i)
+	{
+		v.pop_back();
+	}
 	printContent(v);
 	return 0;
 }

@@ -8,11 +8,11 @@ start()
 	{
 		m.insert(CONTAINER::make_pair(i, i));
 	}
-    std::cout << "test [" << x++ << "]" << std::endl;
+	std::cout << "test [" << x++ << "]" << std::endl;
 	std::cout << m.upper_bound(1)->first << std::endl;
-    std::cout << "test [" << x++ << "]" << std::endl;
-    std::cout << m.upper_bound(9)->first << std::endl;
-    std::cout << "test [" << x++ << "]" << std::endl;
-    std::cout << m.upper_bound(5)->first << std::endl;
-    return 0;
+	std::cout << "test [" << x++ << "]" << std::endl;
+	std::cout << m.upper_bound(9)->first << std::endl;
+	std::cout << "test [" << x++ << "]" << std::endl;
+	std::cout << m.upper_bound(5)->first << std::endl;
+	return 0;
 }

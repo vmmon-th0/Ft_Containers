@@ -6,7 +6,7 @@
 void
 printContent(const CONTAINER::vector<TP>& y)
 {
-    std::cout << "test [" << x++ << "]" << std::endl;
+	std::cout << "test [" << x++ << "]" << std::endl;
 	for (CONTAINER::vector<TP>::const_iterator it = y.begin(); it != y.end(); ++it)
 	{
 		std::cout << *it << std::endl;

@@ -8,11 +8,11 @@ start()
 	{
 		s.insert(i);
 	}
-    std::cout << "test [" << x++ << "]" << std::endl;
+	std::cout << "test [" << x++ << "]" << std::endl;
 	std::cout << *s.lower_bound(1) << std::endl;
-    std::cout << "test [" << x++ << "]" << std::endl;
-    std::cout << *s.lower_bound(9) << std::endl;
-    std::cout << "test [" << x++ << "]" << std::endl;
-    std::cout << *s.lower_bound(5) << std::endl;
-    return 0;
+	std::cout << "test [" << x++ << "]" << std::endl;
+	std::cout << *s.lower_bound(9) << std::endl;
+	std::cout << "test [" << x++ << "]" << std::endl;
+	std::cout << *s.lower_bound(5) << std::endl;
+	return 0;
 }

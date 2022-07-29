@@ -3,13 +3,13 @@
 int
 start()
 {
-    std::cout << "test [" << x++ << "]" << std::endl;
+	std::cout << "test [" << x++ << "]" << std::endl;
 	CONTAINER::set<TP> s;
 	for (int i = 0; i < 1000; ++i)
 	{
 		s.insert(i);
 	}
 	s.clear();
-    printContent(s);
+	printContent(s);
 	return 0;
 }

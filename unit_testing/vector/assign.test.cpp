@@ -30,5 +30,5 @@ start()
 	v.clear();
 	v.assign(100, 3);
 	printContent(v);
-    return 0;
+	return 0;
 }

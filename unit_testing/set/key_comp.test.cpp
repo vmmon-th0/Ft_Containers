@@ -13,5 +13,5 @@ start()
 	std::cout << std::boolalpha << mycomp(*s.begin(), -2)<< std::endl;
 	std::cout << "test [" << x++ << "]" << std::endl;
 	std::cout << std::boolalpha << mycomp(*s.begin(), 1)<< std::endl;
-    return 0;
+	return 0;
 }

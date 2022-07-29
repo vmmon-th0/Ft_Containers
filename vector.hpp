@@ -456,8 +456,9 @@ namespace ft
 			}
 
 			/* 		CASE 1 : The space in the vector is enough to insert (n) elements.
-					subcase 1 -> The space between end() and position is less than the elements we need to insert.
-					subcase 2 -> The space between end() and position is greater than the elements we need to insert.
+
+						subcase 1 -> The space between end() and position is less than the elements we need to insert.
+						subcase 2 -> The space between end() and position is greater than the elements we need to insert.
 			
 					CASE 2 : The space is not big enough to insert (n) elements. */
 
